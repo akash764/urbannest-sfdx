@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <description>On new Lead, assigns it to the Sales Executives group member with the fewest open leads.</description>
+    <actionCalls>
+        <name>Assign_Lead</name><label>Assign Lead</label>
+        <locationX>0</locationX><locationY>0</locationY>
+        <actionName>LeadRoundRobin</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters><name>leadId</name><value><elementReference>$Record.Id</elementReference></value></inputParameters>
+    </actionCalls>
+    <start>
+        <locationX>0</locationX><locationY>0</locationY>
+        <connector><targetReference>Assign_Lead</targetReference></connector>
+        <object>Lead</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <label>Lead - Assign Least Loaded Rep</label>
+    <processMetadataValues><name>BuilderType</name><value><stringValue>LightningFlowBuilder</stringValue></value></processMetadataValues>
+    <processMetadataValues><name>CanvasMode</name><value><stringValue>AUTO_LAYOUT_CANVAS</stringValue></value></processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <status>Active</status>
+</Flow>

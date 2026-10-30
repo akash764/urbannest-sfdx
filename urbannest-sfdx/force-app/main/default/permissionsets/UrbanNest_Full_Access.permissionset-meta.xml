@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Full access to UrbanNest objects, fields, app and Apex</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>UrbanNest Full Access</label>
+    <applicationVisibilities><application>UrbanNest</application><visible>true</visible></applicationVisibilities>
+    <classAccesses><apexClass>LeadRoundRobin</apexClass><enabled>true</enabled></classAccesses>
+    <fieldPermissions><editable>false</editable><field>Project__c.Project_Code__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Project__c.City__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Project__c.State__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Project__c.Locality__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Project__c.Status__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Project__c.Possession_Date__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Project__c.RERA_Number__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Project__c.Project_Budget__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Project__c.Hero_Image_URL__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Project__c.Description__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>false</editable><field>Project__c.Total_Blocks__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>false</editable><field>Block__c.Total_Units__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>House_Unit__c.Unit_Type__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>House_Unit__c.Area_SqFt__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>House_Unit__c.Floor__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>House_Unit__c.Facing__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>House_Unit__c.Price__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>House_Unit__c.Status__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>House_Unit__c.Photo_URL__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>House_Unit__c.Floor_Plan_URL__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>false</editable><field>House_Unit__c.Project_Name__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>false</editable><field>House_Unit__c.Project_Id__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Lead.Budget__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Lead.Preferred_Project__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Lead.BHK_Preference__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Lead.Lead_Source_Portal__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Lead.External_Lead_Id__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Lead.WhatsApp_Consent__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Opportunity.House_Unit__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>true</editable><field>Opportunity.Payment_Mode__c</field><readable>true</readable></fieldPermissions>
+    <fieldPermissions><editable>false</editable><field>Opportunity.Projected_Amount__c</field><readable>true</readable></fieldPermissions>
+    <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>Project__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
+    <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>Block__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
+    <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>House_Unit__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
+    <tabSettings><tab>Project__c</tab><visibility>Visible</visibility></tabSettings>
+    <tabSettings><tab>Block__c</tab><visibility>Visible</visibility></tabSettings>
+    <tabSettings><tab>House_Unit__c</tab><visibility>Visible</visibility></tabSettings>
+</PermissionSet>

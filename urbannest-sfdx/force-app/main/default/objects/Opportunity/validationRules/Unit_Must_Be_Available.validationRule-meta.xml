@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unit_Must_Be_Available</fullName>
+    <active>true</active>
+    <description>A unit can be attached only while Available</description>
+    <errorConditionFormula>AND(NOT(ISBLANK(House_Unit__c)), OR(ISNEW(), ISCHANGED(House_Unit__c)), NOT(ISPICKVAL(House_Unit__r.Status__c, "Available")))</errorConditionFormula>
+    <errorDisplayField>House_Unit__c</errorDisplayField>
+    <errorMessage>This unit is not available. Pick a unit with Status = Available.</errorMessage>
+</ValidationRule>

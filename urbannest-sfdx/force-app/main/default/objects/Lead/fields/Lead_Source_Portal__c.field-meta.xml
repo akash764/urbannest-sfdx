@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Source_Portal__c</fullName>
+    <label>Lead Source Portal</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet><restricted>false</restricted><valueSetDefinition><sorted>false</sorted><value><fullName>Website</fullName><default>false</default><label>Website</label></value><value><fullName>MagicBricks</fullName><default>false</default><label>MagicBricks</label></value><value><fullName>NoBroker</fullName><default>false</default><label>NoBroker</label></value><value><fullName>99acres</fullName><default>false</default><label>99acres</label></value><value><fullName>Social Media</fullName><default>false</default><label>Social Media</label></value><value><fullName>Walk-in</fullName><default>false</default><label>Walk-in</label></value></valueSetDefinition></valueSet>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Mode__c</fullName>
+    <label>Payment Mode</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet><restricted>false</restricted><valueSetDefinition><sorted>false</sorted><value><fullName>Self-funded</fullName><default>false</default><label>Self-funded</label></value><value><fullName>Bank Loan</fullName><default>false</default><label>Bank Loan</label></value></valueSetDefinition></valueSet>
+</CustomField>

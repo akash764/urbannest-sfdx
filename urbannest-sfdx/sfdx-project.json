@@ -1,0 +1,10 @@
+{
+  "packageDirectories": [
+    { "path": "force-app", "default": true },
+    { "path": "force-app-optional", "default": false }
+  ],
+  "name": "urbannest",
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "61.0"
+}

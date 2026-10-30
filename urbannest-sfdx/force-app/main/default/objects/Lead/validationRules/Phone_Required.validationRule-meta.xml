@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phone_Required</fullName>
+    <active>true</active>
+    <description>A lead must have a contact number</description>
+    <errorConditionFormula>AND(ISBLANK(Phone), ISBLANK(MobilePhone))</errorConditionFormula>
+    <errorDisplayField>Phone</errorDisplayField>
+    <errorMessage>Enter a phone number (Phone or Mobile).</errorMessage>
+</ValidationRule>

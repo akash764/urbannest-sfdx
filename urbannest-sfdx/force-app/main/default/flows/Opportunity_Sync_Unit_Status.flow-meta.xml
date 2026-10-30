@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <description>Keeps House Unit status in step with the Opportunity stage: Reserved, Booked, Sold, or back to Available on cancel/lost.</description>
+    <decisions>
+        <name>Check_Stage</name><label>Check Stage</label>
+        <locationX>0</locationX><locationY>0</locationY>
+        <defaultConnectorLabel>No change</defaultConnectorLabel>
+        <rules><name>Reserved</name><conditionLogic>or</conditionLogic><conditions><leftValueReference>$Record.StageName</leftValueReference><operator>EqualTo</operator><rightValue><stringValue>Site Visit Scheduled</stringValue></rightValue></conditions><connector><targetReference>Set_Reserved</targetReference></connector><label>Reserved</label></rules>
+        <rules><name>Booked</name><conditionLogic>or</conditionLogic><conditions><leftValueReference>$Record.StageName</leftValueReference><operator>EqualTo</operator><rightValue><stringValue>Advance Paid</stringValue></rightValue></conditions><conditions><leftValueReference>$Record.StageName</leftValueReference><operator>EqualTo</operator><rightValue><stringValue>Document Collection</stringValue></rightValue></conditions><conditions><leftValueReference>$Record.StageName</leftValueReference><operator>EqualTo</operator><rightValue><stringValue>Bank Sanction</stringValue></rightValue></conditions><conditions><leftValueReference>$Record.StageName</leftValueReference><operator>EqualTo</operator><rightValue><stringValue>Construction Milestone</stringValue></rightValue></conditions><connector><targetReference>Set_Booked</targetReference></connector><label>Booked</label></rules>
+        <rules><name>Sold</name><conditionLogic>or</conditionLogic><conditions><leftValueReference>$Record.StageName</leftValueReference><operator>EqualTo</operator><rightValue><stringValue>Key Handover</stringValue></rightValue></conditions><connector><targetReference>Set_Sold</targetReference></connector><label>Sold</label></rules>
+        <rules><name>Released</name><conditionLogic>or</conditionLogic><conditions><leftValueReference>$Record.StageName</leftValueReference><operator>EqualTo</operator><rightValue><stringValue>Cancelled</stringValue></rightValue></conditions><conditions><leftValueReference>$Record.StageName</leftValueReference><operator>EqualTo</operator><rightValue><stringValue>Closed Lost</stringValue></rightValue></conditions><connector><targetReference>Set_Available</targetReference></connector><label>Released</label></rules>
+    </decisions>
+    <recordUpdates>
+        <name>Set_Available</name><label>Set Available</label>
+        <locationX>0</locationX><locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters><field>Id</field><operator>EqualTo</operator><value><elementReference>$Record.House_Unit__c</elementReference></value></filters>
+        <inputAssignments><field>Status__c</field><value><stringValue>Available</stringValue></value></inputAssignments>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Set_Booked</name><label>Set Booked</label>
+        <locationX>0</locationX><locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters><field>Id</field><operator>EqualTo</operator><value><elementReference>$Record.House_Unit__c</elementReference></value></filters>
+        <inputAssignments><field>Status__c</field><value><stringValue>Booked</stringValue></value></inputAssignments>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Set_Reserved</name><label>Set Reserved</label>
+        <locationX>0</locationX><locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters><field>Id</field><operator>EqualTo</operator><value><elementReference>$Record.House_Unit__c</elementReference></value></filters>
+        <inputAssignments><field>Status__c</field><value><stringValue>Reserved</stringValue></value></inputAssignments>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Set_Sold</name><label>Set Sold</label>
+        <locationX>0</locationX><locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters><field>Id</field><operator>EqualTo</operator><value><elementReference>$Record.House_Unit__c</elementReference></value></filters>
+        <inputAssignments><field>Status__c</field><value><stringValue>Sold</stringValue></value></inputAssignments>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX><locationY>0</locationY>
+        <connector><targetReference>Check_Stage</targetReference></connector>
+        <filterLogic>and</filterLogic>
+        <filters><field>House_Unit__c</field><operator>IsNull</operator><value><booleanValue>false</booleanValue></value></filters>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <label>Opportunity - Sync Unit Status</label>
+    <processMetadataValues><name>BuilderType</name><value><stringValue>LightningFlowBuilder</stringValue></value></processMetadataValues>
+    <processMetadataValues><name>CanvasMode</name><value><stringValue>AUTO_LAYOUT_CANVAS</stringValue></value></processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <status>Active</status>
+</Flow>
